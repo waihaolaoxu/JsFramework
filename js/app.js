@@ -1,5 +1,5 @@
 /*
-    js公共类库
+    js公共类库 前端老徐 by 2017/3/29
 */
 (function (w) {
 
@@ -57,17 +57,6 @@
                 app.onLoad();
             };
         }
-        if ('onReachBottom' in app) {
-            var flag = null;
-            window.onscroll = function () {　　
-                if (app.getScrollTop() + app.getWindowHeight() == app.getScrollHeight()) {
-                    if (flag) clearTimeout(flag);
-                    flag = setTimeout(function () {
-                        app.onReachBottom();
-                    }, 200)　
-                }
-            }
-        }
         if ('onReady' in app) {
             /*
              * 传递函数给whenReady()
@@ -115,6 +104,26 @@
                 }
             })();
             whenReady(app.onReady);
+        }
+        if('onResize' in app){
+            var flag = null;
+            window.onresize=function(){
+                if (flag) clearTimeout(flag);
+                flag = setTimeout(function () {
+                    app.onResize()
+                }, 120)　
+            };
+        }
+        if ('onReachBottom' in app) {
+            var flag = null;
+            window.onscroll = function () {　　
+                if (app.getScrollTop() + app.getWindowHeight() == app.getScrollHeight()) {
+                    if (flag) clearTimeout(flag);
+                    flag = setTimeout(function () {
+                        app.onReachBottom();
+                    }, 200)　
+                }
+            }
         }
         return app;
     }
