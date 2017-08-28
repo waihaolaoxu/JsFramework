@@ -1,9 +1,11 @@
-'use strict';
 /*
-    js公共类库
-*/
-(function (w) {
+ *   js公共类库模版 前端老徐 by 2017/3/29
+ *   https://github.com/waihaolaoxu/JsFramework.git
+ */
 
+(function (w) {
+    'use strict';
+    
     function App() {}
     App.prototype = {
       //TODO
